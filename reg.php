@@ -9,7 +9,7 @@
   </tr>
   <tr>
     <td>Введите e-mail</td>
-    <td><input type="email" id="mail"></td>
+    <td><input type="email" id="mail" onblur="mailScan()"></td>
     <td><span id="errMail"></span></td>
   </tr>
   <tr>

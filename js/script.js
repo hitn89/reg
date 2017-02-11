@@ -1,6 +1,5 @@
 function loginScan() {
   var login = document.getElementById("login").value;
-
   var errLogin = "";
 
   if(login.length < 4 || login.length > 20) {
@@ -13,4 +12,17 @@ function loginScan() {
     errLogin += "Логине должен начинаться с буквы";
   }
 document.getElementById('errLogin').innerHTML = errLogin;
+}
+
+function mailScan() {
+  var mail = document.getElementById("mail").value;
+  var errMail = "";
+
+  var re = /^([a-z0-9_\-]+\.)*[a-z0-9_\-]+@([a-z0-9][a-z0-9\-]*[a-z0-9]\.)+[a-z]{2,6}$/i;
+
+  if(!re.test(mail)){
+    errMail += "Не корректно введен e-mail";
+  }
+
+document.getElementById('errMail').innerHTML = errMail;
 }
