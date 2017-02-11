@@ -2,7 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Регистрация нового пользователя</title>
+    <title>Сайт</title>
+    <script src="http://yandex.st/jquery/2.1.0/jquery.min.js" type="text/javascript"></script>
+    <script src="js/script.js" type="text/javascript"></script>
   </head>
   <body>
     <table width="100%" height="800" border="1">
