@@ -1,38 +1,13 @@
-<form action="newuser.php" method="post">
-<table border="1">
-  <tr>
-    <td colspan="3"><h1>Регистрация</h1></td>
-  </tr>
-  <tr>
-    <td width="170">Введите логин</td>
-    <td width="200"><input type="text" name="login" id="login" onblur="validateForm()"></td>
-    <td width="500"><span id="errLogin"></span></td>
-  </tr>
-  <tr>
-    <td>Введите e-mail</td>
-    <td><input type="email" id="mail" name="mail" onblur="validateForm()"></td>
-    <td><span id="errMail"></span></td>
-  </tr>
-  <tr>
-    <td>Введите Имя</td>
-    <td><input type="text" id="name" name="name" onblur="validateForm()"></td>
-    <td><span id="errName"></span></td>
-  </tr>
-  <tr>
-    <td>Введите пароль</td>
-    <td><input type="password" name="password" id="password" onblur="validateForm()"></td>
-    <td><span id="errPassword"></span></td>
-  </tr>
-  <tr>
-    <td>Повторите пароль</td>
-    <td><input type="password" id="passwordR" onblur="validateForm()"></td>
-    <td><span id="errPasswordR"></span></td>
-  </tr>
-  <tr>
-    <td colspan="3" height="40"><input type="submit" id="submit" value="Зарегистрироваться" disabled></td>
-  </tr>
-  <tr>
-    <td colspan="3" height="40"><a href="?page=enter">Я уже зарегистрирован</a></td>
-  </tr>
-</table>
-</form>
+<?php
+include"auth.php";
+$ip = $_SERVER['REMOTE_ADDR'];
+
+$query="SELECT * FROM regip WHERE date >= DATE_SUB(NOW() , INTERVAL 5 MINUTE) AND (ip='$ip')";
+$result=mysql_query($query);
+$arr = mysql_fetch_array($result);
+  if(empty($arr[0])){
+    include"regform.php";
+  } else {
+    echo"<h2>С вашего IP адреса недавно была произведена регистрация. Для повторной попытки необходимо подождать 5 минут.</h2>";
+  }
+?>
