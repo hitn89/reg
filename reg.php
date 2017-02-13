@@ -6,7 +6,7 @@
   <tr>
     <td width="170">Введите логин</td>
     <td width="200"><input type="text" id="login" onblur="validateForm()"></td>
-    <td width="300"><span id="errLogin"></span></td>
+    <td width="500"><span id="errLogin"></span></td>
   </tr>
   <tr>
     <td>Введите e-mail</td>
