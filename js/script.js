@@ -3,7 +3,7 @@ var VALID;
 function validateForm() {
 
   VALID = true;
-  var login = document.getElementById("login").value.toLowerCase();;
+  var login = document.getElementById("login").value.toLowerCase();
   var errLogin = "";
 
   if(login.length < 4 || login.length > 20) {
@@ -40,7 +40,7 @@ function validateForm() {
   }
 
 // проверка почты регулярным выражением
-  var mail = document.getElementById("mail").value;
+  var mail = document.getElementById("mail").value.toLowerCase();
   var errMail = "";
   var re = /^([a-z0-9_\-]+\.)*[a-z0-9_\-]+@([a-z0-9][a-z0-9\-]*[a-z0-9]\.)+[a-z]{2,6}$/i;
 
