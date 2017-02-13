@@ -13,6 +13,7 @@
       <tr>
         <td align="center" width="80%">
         <?php
+        if (empty($_SESSION['nick'])){
           if(!empty($_GET['page'])){
             $page = $_GET['page'];
             switch ($page) {
@@ -33,6 +34,7 @@
           } else {
             include"enter.php";
           }
+        } else { include"start.php"; }
          ?>
         </td>
         <td valign="top">
