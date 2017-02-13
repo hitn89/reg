@@ -7,7 +7,7 @@ $mail = $_POST['mail'];
 $name = $_POST['name'];
 $password = $_POST['password'];
 $ip = $_SERVER['REMOTE_ADDR'];
-$date = date('20y-m-d',time());
+$date = date('20y-m-d H:i:s',time());
 
 $password = md5(md5(trim($password)));
 $login = strtolower($login);
