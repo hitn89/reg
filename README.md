@@ -1,2 +1,3 @@
 # reg
-ver 1.2
+DEMO:
+https://andrinn.ru/reg/
