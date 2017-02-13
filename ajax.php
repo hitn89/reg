@@ -12,11 +12,15 @@ function getMysql($sql) {
 }
 
 $funk = $_GET['funk'];
-$login = $_GET['login'];
 
 	switch ($funk) {
-    case "users":
+    case "login":
+				$login = $_GET['login'];
         getMysql("select * from users where login='$login'");
         break;
+		case "mail":
+				$mail = $_GET['mail'];
+		    getMysql("select * from users where mail='$mail'");
+		    break;
 	 }
 ?>

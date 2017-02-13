@@ -23,7 +23,7 @@ function validateForm() {
   if (login.length > 0) {
    if (errLogin.length < 1) {
    $.ajax({
-     url: "ajax.php?funk=users&login=" + login,
+     url: "ajax.php?funk=login&login=" + login,
      success: function (data) {
        data = jQuery.parseJSON(data);
        var bdLogin = data[0].login;
@@ -49,6 +49,22 @@ function validateForm() {
     VALID = false;
   }
   if (mail.length > 0) {
+    // проверяем совпадение почты  базе
+    if (errMail.length < 1) {
+    $.ajax({
+      url: "ajax.php?funk=mail&mail=" + mail,
+      success: function (data) {
+        data = jQuery.parseJSON(data);
+        var bdMail = data[0].mail;
+          if (mail.localeCompare(bdMail) == 0) {
+          VALID = false;
+          errMail = "E-mail занят";
+        }
+        $('#errMail').html(errMail);
+      },
+      async: false
+    });
+   }
 document.getElementById('errMail').innerHTML = errMail;
 }
 
@@ -89,14 +105,6 @@ document.getElementById('errPassword').innerHTML = errPassword;
     VALID = false;
   }
 document.getElementById('errPasswordR').innerHTML = errPasswordR;
-
-// потом удалить
-document.getElementById('errorCounter').innerHTML = VALID;
-// var deferred = $.Deferred();
-// deferred.done(function(value) {
-//    alert(value + ", V=" + VALID);
-//    VALID = value;
-// });
 
 if (VALID == true) {
   $('#submit').prop('disabled', false);
