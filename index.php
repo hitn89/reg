@@ -5,6 +5,7 @@
   <head>
     <meta charset="utf-8">
     <title>Сайт</title>
+    <link rel="stylesheet" type="text/css" media="all" href="img/style.css" />
     <script src="http://yandex.st/jquery/2.1.0/jquery.min.js" type="text/javascript"></script>
     <script src="js/script.js" type="text/javascript"></script>
   </head>
